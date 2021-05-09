@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
-shutdown() {
-  echo "Initiating shutdown-procedure ..."
-  ./shutdown.sh
-}
-
-trap shutdown 1 2 3 6
+trap ./shutdown.sh SIGINT SIGTERM SIGHUP ERR EXIT
 
 ./ssm-auth.sh
 amazon-ssm-agent &
 
-tail -f /dev/null
+while true; do
+    sleep 3600 & wait ${!}
+done
