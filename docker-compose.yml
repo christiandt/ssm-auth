@@ -1,0 +1,11 @@
+version: "2.4"  # optional since v1.27.0
+services:
+  ssm:
+    build: .
+    environment:
+      - SSMROLE=SSMRole
+      - INSTANCENAME=ssm-container
+      - AWS_REGION=eu-west-1
+    volumes:
+      - ~/.aws:/root/.aws
+    tty: true
