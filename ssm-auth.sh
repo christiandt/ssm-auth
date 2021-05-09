@@ -55,7 +55,7 @@ removeDisconnectedInstances
 SSMCODE=$(cat ${CREDFILE} | jq .ActivationCode -r)
 SSMID=$(cat ${CREDFILE} | jq .ActivationId -r)
 
-amazon-ssm-agent -register -code ${SSMCODE} -id ${SSMID} -region ${AWS_REGION}
+amazon-ssm-agent -register -code ${SSMCODE} -id ${SSMID} -region ${AWS_REGION} -y
 
 # Add ssm-user to sudo group
 echo "ssm-user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers
