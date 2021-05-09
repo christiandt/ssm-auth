@@ -6,6 +6,5 @@ services:
       - SSMROLE=SSMRole
       - INSTANCENAME=ssm-container
       - AWS_REGION=eu-west-1
-    volumes:
-      - ~/.aws:/root/.aws
-    tty: true
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
